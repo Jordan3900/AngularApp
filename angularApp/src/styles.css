@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #343a40;
+    line-height: 1;
+    vertical-align: baseline;
+}
+
+.dropdown-item {
+    color: grey !important;
+}
+
+nav {
+    box-shadow: 1px 2px 18px 0px whitesmoke;
+}
