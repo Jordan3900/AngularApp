@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { AuthService } from './shared/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [`form { width: 50%;margin: auto; color: white;}`]
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent  {
+
   constructor(private auth: AuthService, private router: Router) {
 
   }

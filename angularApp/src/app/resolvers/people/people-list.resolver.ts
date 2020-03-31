@@ -1,6 +1,6 @@
 import { ActivatedRouteSnapshot, CanActivate, Router, Resolve } from "@angular/router"
 import { Injectable } from "@angular/core"
-import { PeopleService } from './people.service';
+import { PeopleService } from '../../services/people/people.service';
 import { map } from 'rxjs/operators'
 
 
@@ -11,7 +11,6 @@ export class PeopleListResolver implements Resolve<any> {
   }
 
   resolve() {
-    
     return this.peopleService.getPeople();
   }
 }

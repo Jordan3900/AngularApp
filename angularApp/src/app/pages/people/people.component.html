@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <!-- Section: Block Content -->
+  <div *ngFor="let p of people">
+    <h1>{{p.first_name}}?</h1>
+  </div>
+  <section class="team-section">
+
+    <div class="card">
+      <div class="card-header white d-flex justify-content-between">
+        <p class="h5-responsive font-weight-bold mb-0">Latest Members</p>
+        <ul class="list-unstyled d-flex align-items-center mb-0">
+          <li><span class="badge badge-danger">{{people.length}} Members</span></li>
+          <li><i class="far fa-window-minimize fa-sm pl-3"></i></li>
+          <li><i class="fas fa-times fa-sm pl-3"></i></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="row pt-4">
+          
+        </div>
+      </div>
+      <div class="card-footer white text-center py-3">
+        <a href="#!">View All Users</a>
+      </div>
+    </div>
+
+  </section>
+  <!-- Section: Block Content -->
+</div>

@@ -5,20 +5,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { appRoutes } from './routes';
-import { HomePageComponent } from './home/homepage.component'
-import { AuthService } from './user/shared/auth.service';
-import { PeopleListComponent } from './people/people-list.component';
-import { PeopleService } from './people/shared/people.service';
-import { PeopleListResolver } from './people/shared/people-list.resolver';
+import { appRoutes } from './app.routing';
+import { AuthService } from './services/auth/auth.service';
+import { PeopleService } from './services/people/people.service';
+import { PeopleListResolver } from './resolvers/people/people-list.resolver';
+import { HomeComponent } from './pages/home/home.component';
+import { PeopleCardComponent } from './components/people-card/people-card.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PeopleComponent } from './pages/people/people.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    HomePageComponent,
-    PeopleListComponent
+    HomeComponent,
+    HomeComponent,
+    PeopleCardComponent,
+    PeopleComponent,
+    NavigationBarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
