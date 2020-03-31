@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IPeople } from 'src/app/pages/people/model/people.model';
+import { IPeople } from '../../models/people.model';
+
 
 @Component({
   selector: 'app-people-card',

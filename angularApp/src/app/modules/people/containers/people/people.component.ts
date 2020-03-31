@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from 'src/app/services/people/people.service';
+
 import { ActivatedRoute } from '@angular/router';
+import { PeopleService } from '../../services/people/people.service';
 
 @Component({
   selector: 'app-people',
@@ -17,5 +18,6 @@ export class PeopleComponent implements OnInit {
   ngOnInit() {
     this.people = this.route.snapshot.data['people'];
   }
+
 
 }

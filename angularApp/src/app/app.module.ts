@@ -6,24 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
-import { AuthService } from './services/auth/auth.service';
-import { PeopleService } from './services/people/people.service';
-import { PeopleListResolver } from './resolvers/people/people-list.resolver';
-import { HomeComponent } from './pages/home/home.component';
-import { PeopleCardComponent } from './components/people-card/people-card.component';
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-import { LoginComponent } from './pages/login/login.component';
-import { PeopleComponent } from './pages/people/people.component';
+import { AuthService } from './modules/auth/services/auth.service';
+import { HomeComponent } from './modules/home/components/home.component';
+import { PeopleCardComponent } from './modules/people/components/people-card/people-card.component';
+import { NavigationBarComponent } from './modules/layout/components/navigation-bar/navigation-bar.component';
+import { PeopleComponent } from './modules/people/containers/people/people.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HomeComponent,
-    PeopleCardComponent,
-    PeopleComponent,
     NavigationBarComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +26,7 @@ import { PeopleComponent } from './pages/people/people.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [AuthService, PeopleService, PeopleListResolver],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [AppComponent ]
 })
 export class AppModule { }

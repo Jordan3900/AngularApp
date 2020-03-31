@@ -1,7 +1,8 @@
 import { ActivatedRouteSnapshot, CanActivate, Router, Resolve } from "@angular/router"
 import { Injectable } from "@angular/core"
-import { PeopleService } from '../../services/people/people.service';
 import { map } from 'rxjs/operators'
+import { PeopleService } from "src/app/modules/people/services/people/people.service";
+
 
 
 @Injectable()
