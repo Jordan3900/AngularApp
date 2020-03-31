@@ -4,10 +4,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { peopleRoutes } from './people.routes';
-import { PeopleService } from './services/people/people.service';
 import { PeopleCardComponent } from './components/people-card/people-card.component';
-import { PeopleListResolver } from 'src/app/resolvers/people/people-list.resolver';
-import { PeopleComponent } from './containers/people/people.component';
+import { PeopleListComponent } from './containers/people-list/people-list.component';
+import { PeopleService } from './services/people/people.service';
+import { PeopleState } from './state/people.state';
+import { PeopleFacade } from './people.facade';
 
 
 
@@ -19,11 +20,11 @@ import { PeopleComponent } from './containers/people/people.component';
         RouterModule.forChild(peopleRoutes)
     ],
     declarations: [
-        PeopleComponent,
+        PeopleListComponent,
         PeopleCardComponent
     ],
     providers: [
-        PeopleService, PeopleListResolver
+      PeopleService, PeopleState, PeopleFacade
     ]
 })
 

@@ -1,8 +1,6 @@
 <div class="container my-5">
   <!-- Section: Block Content -->
-  <div *ngFor="let p of people">
-    <h1>{{p.first_name}}?</h1>
-  </div>
+
   <section class="team-section">
 
     <div class="card">
@@ -14,9 +12,11 @@
           <li><i class="fas fa-times fa-sm pl-3"></i></li>
         </ul>
       </div>
-      <div class="card-body">
-        <div class="row pt-4">
-          
+      <div class="card-body ">
+        <div class="row pt-3 pl-5">
+          <div *ngFor="let p of people | async">
+            <people-card [people]="p"></people-card>
+          </div>
         </div>
       </div>
       <div class="card-footer white text-center py-3">

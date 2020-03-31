@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
 import { AuthService } from './modules/auth/services/auth.service';
 import { HomeComponent } from './modules/home/components/home.component';
-import { PeopleCardComponent } from './modules/people/components/people-card/people-card.component';
 import { NavigationBarComponent } from './modules/layout/components/navigation-bar/navigation-bar.component';
-import { PeopleComponent } from './modules/people/containers/people/people.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +25,6 @@ import { PeopleComponent } from './modules/people/containers/people/people.compo
     FormsModule,
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

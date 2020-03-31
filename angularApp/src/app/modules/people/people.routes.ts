@@ -1,8 +1,7 @@
 
-import { PeopleListResolver } from "src/app/resolvers/people/people-list.resolver";
-import { PeopleComponent } from "./containers/people/people.component";
+import { PeopleListComponent } from "./containers/people-list/people-list.component";
 
 
 export const peopleRoutes = [
-    {path: 'list', component: PeopleComponent, resolve: {people: PeopleListResolver} },
+    {path: 'list', component: PeopleListComponent},
 ]

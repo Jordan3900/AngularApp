@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IPeople } from '../../models/people.model';
 
 
 @Component({
-  selector: 'app-people-card',
+  selector: 'people-card',
   templateUrl: './people-card.component.html',
   styleUrls: ['./people-card.component.css']
 })
 export class PeopleCardComponent implements OnInit {
-  people: IPeople
+  @Input() people: IPeople
   
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
