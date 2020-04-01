@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/components/home.component';
-
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'user', loadChildren:'./modules/user/user.module#UserModule'},
-    { path: 'people', loadChildren:'./modules/people/people.module#PeopleModule'},
+    { path: 'user', loadChildren:'./modules/auth/user.module#UserModule'},
+    { path: 'users', loadChildren:'./modules/users/users.module#UsersModule', canLoad: [AuthGuardService]},
 ]

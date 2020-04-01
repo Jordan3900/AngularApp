@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
 import { Observable, of } from "rxjs";
-import {IPeople } from '../../models/people.model'
+import {IUser } from '../../models/user.model'
 import { catchError, tap, map, pluck } from "rxjs/operators";
 
 @Injectable()
-export class PeopleService {
+export class UsersService {
     readonly URL = 'https://reqres.in/api/users';
 
     constructor(private http: HttpClient) {
 
     }
 
-    getPeople(): Observable<IPeople[]> {   
-        return this.http.get<IPeople[]>(this.URL).pipe(
+    getUsers(): Observable<IUser[]> {   
+        return this.http.get<IUser[]>(this.URL).pipe(
             pluck('data'),
             tap(console.log)
         );

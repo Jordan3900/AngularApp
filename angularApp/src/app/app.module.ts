@@ -9,6 +9,8 @@ import { appRoutes } from './app.routing';
 import { AuthService } from './modules/auth/services/auth.service';
 import { HomeComponent } from './modules/home/components/home.component';
 import { NavigationBarComponent } from './modules/layout/components/navigation-bar/navigation-bar.component';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { HttpService } from './services/http/http.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { NavigationBarComponent } from './modules/layout/components/navigation-b
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

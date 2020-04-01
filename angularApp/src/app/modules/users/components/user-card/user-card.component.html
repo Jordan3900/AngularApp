@@ -9,10 +9,10 @@
 </div> -->
 
 <div class="card m-3" style="width: 18rem;">
-  <img class="card-img-top" src="{{people.avatar}}" alt="Card image cap">
+  <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+    <p class="card-text" *ngIf="showText">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <button (click)="toggle()" class="btn btn-primary">{{text}}</button>
   </div>
 </div>

@@ -7,15 +7,15 @@
       <div class="card-header white d-flex justify-content-between">
         <p class="h5-responsive font-weight-bold mb-0">Latest Members</p>
         <ul class="list-unstyled d-flex align-items-center mb-0">
-          <li><span class="badge badge-danger">{{people.length}} Members</span></li>
+          <li><span class="badge badge-danger">{{length}} Members</span></li>
           <li><i class="far fa-window-minimize fa-sm pl-3"></i></li>
           <li><i class="fas fa-times fa-sm pl-3"></i></li>
         </ul>
       </div>
       <div class="card-body ">
         <div class="row pt-3 pl-5">
-          <div *ngFor="let p of people | async">
-            <people-card [people]="p"></people-card>
+          <div *ngFor="let user of users">
+            <user-card [user]="user"></user-card>
           </div>
         </div>
       </div>

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IPeople } from '../models/people.model';
+import { IUser } from '../models/user.model';
 
 @Injectable()
-export class PeopleState {
+export class UsersState {
 
     private updating = new BehaviorSubject<boolean>(false);
-    private people = new BehaviorSubject<IPeople[]>(null);
+    private users = new BehaviorSubject<IUser[]>(null);
   
     isUpdating() {
       return this.updating.asObservable();
@@ -16,11 +16,11 @@ export class PeopleState {
       this.updating.next(isUpdating);
     }
   
-    getPeople() {
-      return this.people.asObservable();
+    getUsers() {
+      return this.users.asObservable();
     }
 
-    setPeople(people: IPeople[]) {
-      this.people.next(people);
+    setUsers(users: IUser[]) {
+      this.users.next(users);
     }
 }

@@ -1,0 +1,27 @@
+<!-- Default form login -->
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="text-center p-5" action="#!" novalidate autocomplete="off">
+  <p class="h4 mb-4">Sign in</p>
+  <!-- Email -->
+  <em *ngIf="!validateEmail()">Required</em>
+  <input formControlName="email" [ngClass]="{'error' : !validateEmail()}" type="email" (ngModel)="email" name="email" id="defaultLoginFormEmail"
+   class="form-control mb-4" placeholder="E-mail" required/>
+  <!-- Password -->
+  <em *ngIf="!validatePassword()">Required</em>
+  <input formControlName="password" [ngClass]="{'error' : !validatePassword() }" type="password" (ngModel)="password" name="password" id="defaultLoginFormPassword"
+   class="form-control mb-4" placeholder="Password" required/>
+  <div class="d-flex justify-content-around">
+      <div>
+          <!-- Remember me -->
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+              <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+          </div>
+      </div>
+  </div>
+  <!-- Sign in button -->
+  <button [disabled]="!loginForm.valid" class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+  <!-- Register -->
+  <p>Not a member?
+      <a href="">Register</a>
+  </p>
+</form>
