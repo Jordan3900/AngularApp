@@ -7,4 +7,6 @@ export const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'user', loadChildren:'./modules/auth/user.module#UserModule'},
     { path: 'users', loadChildren:'./modules/users/users.module#UsersModule', canLoad: [AuthGuardService]},
+    // What is the difference between canLoad and canActivate?
+    // Is canLoad the right thing to use here?
 ]

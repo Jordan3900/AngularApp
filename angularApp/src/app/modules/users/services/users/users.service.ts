@@ -12,12 +12,15 @@ export class UsersService {
 
     }
 
+    // Please subscribe directly here and remove the facade and state
     getUsers(): Observable<IUser[]> {   
         return this.http.get<IUser[]>(this.URL).pipe(
             pluck('data'),
             tap(console.log)
         );
     }
+
+    // Do you use this? 
     private handleError<T>(operation = 'operation', results?: T) {
         return (error: any): Observable<T> => {
             console.error(error);
