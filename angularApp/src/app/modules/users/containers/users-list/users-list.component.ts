@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 import { UsersFacade } from '../../users.facade';
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-user', // Your component is called UsersList, but the selector is app-user??
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
   @Input() users: IUser[];
-  length: number
+  length: number  // Don't forget the ;
   isUpdating: Observable<boolean>;
 
   constructor(private route: ActivatedRoute, private userFacade: UsersFacade) {

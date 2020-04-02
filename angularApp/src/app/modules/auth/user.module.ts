@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { LoginComponent } from './components/login/login.component';
 import { userRoutes } from './user.routes';
 
+// This is already in the auth folder, I think it must be renamed to AuthModule
 @NgModule({
     imports: [
         CommonModule,

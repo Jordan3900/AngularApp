@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Why do you need different folders for the services? 
+
 @Injectable({
   providedIn: 'root'
 })

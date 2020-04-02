@@ -13,6 +13,7 @@ export class AuthService {
     constructor(private httpService: HttpService)  {
     }
 
+    // Why are you not getting the values from the form?
     loginUser(userName: string, password: string) {
         this.currentUser = {
             id: 1,

@@ -1,3 +1,5 @@
+// Why do you have the same model as the one in the users module?
+
 export interface IUser {
     id: number
     email: string
