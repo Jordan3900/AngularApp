@@ -1,27 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IUser } from '../../models/user.model';
+
+import { User } from '../../../models/user.model';
+import { UsersService } from '../../services/users/users.service';
 import { Observable } from 'rxjs';
-import { UsersFacade } from '../../users.facade';
+import { tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-user', // Your component is called UsersList, but the selector is app-user??
+  selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  @Input() users: IUser[];
-  length: number  // Don't forget the ;
-  isUpdating: Observable<boolean>;
-
-  constructor(private route: ActivatedRoute, private userFacade: UsersFacade) {
-    this.isUpdating = userFacade.isUpdating();
+  @Input() users: Observable<User[]>;
+  length: number;  
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
 
   ngOnInit() {
-    this.userFacade.loadUsers().subscribe(users => {
-      this.users = users
-      this.length = users.length
-    });
+    this.users = this.usersService.getUsers().pipe(tap(data => {
+      this.length = data.length
+    }));
   }
 }

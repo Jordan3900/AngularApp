@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Why do you need different folders for the services? 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
 
   constructor(private http: HttpClient) { }
@@ -17,7 +16,7 @@ export class HttpService {
 
     const options = { headers: headers };
 
-    return this.http.post(url, body, { ...options, responseType: 'json' })
+    return this.http.post(url, body, { ...options, responseType: 'json' });
   }
 }
 

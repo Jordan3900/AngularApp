@@ -14,8 +14,8 @@
       </div>
       <div class="card-body ">
         <div class="row pt-3 pl-5">
-          <div *ngFor="let user of users">
-            <user-card [user]="user"></user-card>
+          <div *ngFor="let user of users | async">
+            <app-user-card [user]="user"></app-user-card>
           </div>
         </div>
       </div>

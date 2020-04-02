@@ -3,7 +3,7 @@
   <p class="h4 mb-4">Sign in</p>
   <!-- Email -->
   <em *ngIf="!validateEmail()">Required</em>
-  <input formControlName="email" [ngClass]="{'error' : !validateEmail()}" type="email" (ngModel)="email" name="email" id="defaultLoginFormEmail"
+  <input formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [ngClass]="{'error' : !validateEmail()}" type="email" (ngModel)="email" name="email" id="defaultLoginFormEmail"
    class="form-control mb-4" placeholder="E-mail" required/>
   <!-- Password -->
   <em *ngIf="!validatePassword()">Required</em>

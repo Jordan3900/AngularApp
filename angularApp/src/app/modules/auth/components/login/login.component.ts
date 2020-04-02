@@ -10,15 +10,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  private email: FormControl  // These should not be private. They are used in the template.
-  private password: FormControl
+  public email: FormControl;
+  public password: FormControl;
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.email = new FormControl('', Validators.required);
+    this.email = new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]);
     this.password = new FormControl('', Validators.required);
     this.loginForm = new FormGroup({
       email: this.email,
@@ -34,10 +34,7 @@ export class LoginComponent implements OnInit {
     return this.password.valid || this.password.untouched;
   }
 
-  // This is not doing anything because you don't know if the service has legged in the person successfully
-  // and you are redirecting regardless of what happened with the authentication
   login(formValues) {
-    this.auth.loginUser(formValues.email, formValues.password);
-    this.router.navigate(['home']);
+    this.authService.loginUser(formValues.email, formValues.password);
   }
 }

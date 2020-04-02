@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/modules/auth/services/auth.service'; // Please always use relative paths
+import { AuthService } from '../../../auth/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'navigation-bar', // You should always have your app prefix in the selector
+  selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css']
 })
-export class NavigationBarComponent implements OnInit {
 
-    // The service is injected as private, but is used in the template. 
-    // This will fail the build. If it used in the template, it should be public
-  constructor(private auth: AuthService) { }
+export class NavigationBarComponent implements OnInit {
+  isLoggedIn: Observable<boolean>;
+  name: string;
+  constructor(public authService: AuthService) {
+    this.isLoggedIn = authService.isLoggedIn();
+  }
 
   ngOnInit() {
+    this.name = this.authService.currentUser.fullName;
   }
 
 }

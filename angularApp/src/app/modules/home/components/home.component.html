@@ -1,8 +1,8 @@
 <div class="jumbotron">
-  <h1 class="display-4" *ngIf="!authService.isLogged">Hello, World</h1>
-  <h1 class="display-4" *ngIf="authService.isLogged">Hello, {{authService.currentUser.fullName}}</h1>
+  <h1 class="display-4" *ngIf="!(authService.isLoggedIn() | async)">Hello, World</h1>
+  <h1 class="display-4" *ngIf="(authService.isLoggedIn() | async)">Hello, {{authService.currentUser.fullName}}</h1>
   <p class="lead">This is a Business app made for training.</p>
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-danger btn-lg" *ngIf="!authService.isLogged" role="button" [routerLink]="['/user/login']">Login now</a>
+  <a class="btn btn-danger btn-lg" *ngIf="!(authService.isLoggedIn() | async)" role="button" [routerLink]="['/user/login']">Login now</a>
 </div>

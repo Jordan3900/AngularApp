@@ -1,52 +1,66 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../models/user.model';
-import { HttpService } from 'src/app/services/http/http.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
-@Injectable()
+import { User } from '../../models/user.model';
+import { HttpService } from 'src/app/services/http.service';
+import { Observable, BehaviorSubject } from 'rxjs';
+
+
+@Injectable({
+    providedIn: 'root'
+  })
 export class AuthService {
-    currentUser: IUser;
-    isLogged: boolean = false;
+    currentUser: User;
+    isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
     readonly URL = 'https://reqres.in/api/login';
 
-    constructor(private httpService: HttpService)  {
-    }
-
-    // Why are you not getting the values from the form?
-    loginUser(userName: string, password: string) {
+    constructor(private httpService: HttpService, private router: Router) {
         this.currentUser = {
             id: 1,
-            email: 'eve.holt@reqres.in',
-            userName: userName,
-            password: 'cityslicka',
+            email: '',
+            userName: 'Slim Shady',
+            password: '',
             firstName: 'Slim',
             lastName: 'Shady',
-            fullName: 'Silm Shady'
+            fullName: 'Slim Shady'
         }
+    }
+
+    loginUser(email: string, password: string): void {
+        this.currentUser.email = email;
+        this.currentUser.password = password;
 
         const body = {
-            "email": this.currentUser.email,
-            "password": this.currentUser.password
-        }
-      
-         this.httpService.post(this.URL, body).subscribe(token => {
-             if (token) {
-                 this.isLogged = true;
-             }
-         });
+            'email': 'eve.holt@reqres.in',
+            'password': 'cityslicka'
+        };
+
+        this.httpService.post(this.URL, body).subscribe(value => {
+            if (value) {
+                localStorage.setItem('token', value.token);
+                this.isLoginSubject.next(true);
+                this.router.navigate(['home']);
+            }
+        });
+
     }
 
-    logout() {
-        this.isLogged = false;
+    logout(): void {
+        localStorage.removeItem('token');
+        this.isLoginSubject.next(false);
     }
 
-    isAuthenticated() {
-        return this.isLogged;
+    isLoggedIn(): Observable<boolean> {
+        return this.isLoginSubject.asObservable();
+    }
+
+    private hasToken(): boolean {
+        return !!localStorage.getItem('token');
     }
 
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
     }
+
 }
