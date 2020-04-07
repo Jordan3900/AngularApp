@@ -2,7 +2,6 @@
   <!-- Section: Block Content -->
 
   <section class="team-section">
-
     <div class="card">
       <div class="card-header white d-flex justify-content-between">
         <p class="h5-responsive font-weight-bold mb-0">Latest Members</p>
@@ -11,6 +10,9 @@
           <li><i class="far fa-window-minimize fa-sm pl-3"></i></li>
           <li><i class="fas fa-times fa-sm pl-3"></i></li>
         </ul>
+      </div>
+      <div *ngIf="isLoading" class="m-auto p-5">
+        <mat-spinner></mat-spinner>
       </div>
       <div class="card-body ">
         <div class="row pt-3 pl-5">

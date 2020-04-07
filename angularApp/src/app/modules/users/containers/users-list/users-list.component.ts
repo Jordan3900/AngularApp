@@ -13,13 +13,17 @@ import { tap } from 'rxjs/operators';
 })
 export class UsersListComponent implements OnInit {
   @Input() users: Observable<User[]>;
-  length: number;  
+  length: number;
+  isLoading: boolean;
+
   constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.users = this.usersService.getUsers().pipe(tap(data => {
-      this.length = data.length
+      this.length = data.length,
+      this.isLoading = false;
     }));
   }
 }

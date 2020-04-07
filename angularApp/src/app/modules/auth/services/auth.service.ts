@@ -20,10 +20,10 @@ export class AuthService {
             email: '',
             userName: 'Slim Shady',
             password: '',
-            firstName: 'Slim',
-            lastName: 'Shady',
+            first_name: 'Slim',
+            last_name: 'Shady',
             fullName: 'Slim Shady'
-        }
+        };
     }
 
     loginUser(email: string, password: string): void {
@@ -47,6 +47,7 @@ export class AuthService {
 
     logout(): void {
         localStorage.removeItem('token');
+        this.router.navigate(['home']);
         this.isLoginSubject.next(false);
     }
 
@@ -57,10 +58,4 @@ export class AuthService {
     private hasToken(): boolean {
         return !!localStorage.getItem('token');
     }
-
-    updateCurrentUser(firstName: string, lastName: string) {
-        this.currentUser.firstName = firstName;
-        this.currentUser.lastName = lastName;
-    }
-
 }
