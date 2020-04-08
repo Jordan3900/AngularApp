@@ -31,8 +31,8 @@ export class AuthService {
         this.currentUser.password = password;
 
         const body = {
-            'email': 'eve.holt@reqres.in',
-            'password': 'cityslicka'
+            'email': email,
+            'password': password
         };
 
         this.httpService.post(this.URL, body).subscribe(value => {

@@ -1,28 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { User } from '../../../models/user.model';
 import { catchError, tap, map, pluck, shareReplay } from 'rxjs/operators';
+import { HttpService } from 'src/app/services/http.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsersService {
     readonly usersURL = 'https://reqres.in/api/users?delay=3';
+    readonly userURL = 'https://reqres.in/api/users/';
 
-    constructor(private http: HttpClient) {
+    constructor(private httpService: HttpService) {
     }
 
     getUsers(): Observable<User[]> {
-        return this.http.get<User[]>(this.usersURL).pipe(
+        return this.httpService.get(this.usersURL).pipe(
             catchError(this.handleError<User[]>('getUsers', [])),
             pluck('data')
         );
     }
 
     getUser(id: number): Observable<User> {
-        return this.http.get<User>(`https://reqres.in/api/users/${id}`).pipe(
+        return this.httpService.get(this.userURL + `${id}`).pipe(
             catchError(this.handleError<User>('getUser')),
+            pluck('data'),
+        );
+    }
+
+    updateUser(id: number, body: any): Observable<User> {
+        return this.httpService.put(this.userURL + `${id}`, body).pipe(
+            catchError(this.handleError<User>('updateUser')),
             pluck('data'),
         );
     }

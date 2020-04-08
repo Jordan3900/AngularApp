@@ -20,7 +20,7 @@ export class UserEditComponent implements OnInit {
     duration: 5000,
     panelClass: ['bg-success'],
     verticalPosition: 'top',
-};
+  };
 
   constructor(private router: ActivatedRoute, private usersService: UsersService, private snackBar: MatSnackBar) { }
 
@@ -45,11 +45,18 @@ export class UserEditComponent implements OnInit {
   }
 
   onSave(formValues) {
-    console.log(formValues);
-    this.user.first_name = formValues.firstName;
-    this.user.last_name = formValues.lastName;
-    this.user.email = formValues.email;
+    const body = {
+      'firstName': formValues.firstName,
+      'lastName': formValues.lastName,
+      'email': formValues.email,
+    };
 
-    this.snackBar.open('Saved succesfully', 'X', this.configClass);
+    this.usersService.updateUser(this.id, body).subscribe(() => {
+      this.user.first_name = formValues.firstName;
+      this.user.last_name = formValues.lastName;
+      this.user.email = formValues.email;
+
+      this.snackBar.open('Saved succesfully', 'X', this.configClass);
+    });
   }
 }

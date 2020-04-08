@@ -26,6 +26,9 @@
                 <input matInput formControlName="email" />
             </mat-form-field>
         </p>
-        <button [disabled]="!editForm.valid" type="submit" mat-raised-button color="accent" >Save</button>
+        <div>
+            <button class="mr-2" [disabled]="!editForm.valid" type="submit" mat-raised-button color="accent">Save</button>
+            <button [routerLink]="['/users/details', id]" mat-raised-button color="primary">Back</button>
+        </div>
     </form>
 </div>
