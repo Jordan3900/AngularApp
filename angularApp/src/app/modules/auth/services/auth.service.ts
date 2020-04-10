@@ -6,26 +6,41 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class AuthService {
     public isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
-    private readonly URL = 'https://reqres.in/api/login';
+    private readonly logURL = 'https://reqres.in/api/login';
+    private readonly regURL = 'https://reqres.in/api/register';
 
     constructor(private http: HttpClient, private router: Router) {
     }
 
     loginUser(email: string, password: string): void {
-        debugger;
         const body = {
             'email': email,
             'password': password
         };
 
-        this.http.post(this.URL, body).subscribe(value => {
+        this.http.post(this.logURL, body).subscribe(value => {
             if (value) {
                 localStorage.setItem('token', value['token']);
                 this.isLoginSubject.next(true);
                 this.router.navigate(['home']);
+            }
+        });
+    }
+
+    registerUser(email: string, password: string, firstName: string, lastName: string): void {
+        const body = {
+            'email': email,
+            'password': password,
+            'fristName': firstName,
+            'lastName': lastName
+        };
+
+        this.http.post(this.regURL, body).subscribe(value => {
+            if (value) {
+                this.router.navigate(['auth/login']);
             }
         });
     }

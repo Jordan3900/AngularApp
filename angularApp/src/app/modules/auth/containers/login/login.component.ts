@@ -12,11 +12,10 @@ export class LoginComponent  {
     email: ['', [Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.required]],
     password: ['', Validators.required]
   });
-  
   constructor(private authService: AuthService, private fb: FormBuilder) {
   }
 
-  login(formValues) {
+  login(formValues: any) {
     this.authService.loginUser(formValues.email, formValues.password);
   }
 }

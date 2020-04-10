@@ -11,10 +11,9 @@ export class UserCardComponent {
   @Input() public user: User;
   public showText = false;
   public text = 'Show more';
-  
   constructor() { }
 
-  toggle() {
+  toggle(): boolean {
     this.text = this.showText ? 'Show more' : 'Hide';
     this.showText = !this.showText;
     return this.showText;

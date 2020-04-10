@@ -32,7 +32,7 @@ export class UserDetailsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if (result) {
         this.user.first_name = result.firstName;
         this.user.last_name = result.lastName;
         this.user.email = result.email;

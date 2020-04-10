@@ -44,7 +44,7 @@ export class UserEditComponent implements OnInit {
     };
 
     this.usersService.updateUser(this.user.id, body).subscribe(result => {
-      if(result) {
+      if (result) {
         this.snackBar.open('Saved succesfully', 'X', this.configClass);
         this.dialogRef.close(result);
       }

@@ -10,7 +10,7 @@ export class AuthGuardService implements CanLoad {
 
   canLoad(): boolean {
     if (!this.authService.isLoginSubject.value) {
-      this.router.navigate(['user/login']);
+      this.router.navigate(['auth/login']);
       return false;
     }
     return true;

@@ -15,7 +15,7 @@ import { UserDetailsComponent } from './containers/user-details/user-details.com
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
     imports: [
