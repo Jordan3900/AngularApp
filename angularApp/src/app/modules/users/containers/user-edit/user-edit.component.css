@@ -30,7 +30,10 @@ hr {
     background-color: blanchedalmond;
     border-radius: 8%;
     padding: 3em;
-    width: 60%;
-    margin-top: 3em !important;
     margin: 0 auto;
+}
+
+.something {
+    border-radius: 8% !important;
+    padding: 0px !important;
 }

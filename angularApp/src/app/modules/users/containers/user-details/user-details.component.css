@@ -1,0 +1,14 @@
+.example-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.something {
+    border-radius: 8% !important;
+    padding: 50px !important;
+}

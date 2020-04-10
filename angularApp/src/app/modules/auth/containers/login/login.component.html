@@ -1,0 +1,18 @@
+<!-- Default form login -->
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="text-center p-5" action="#!" novalidate autocomplete="off">
+  <p class="h4 mb-4">Sign in</p>
+  <!-- Email -->
+  <input formControlName="email" type="email" name="email" 
+   class="form-control mb-4" placeholder="E-mail" required/>
+  <!-- Password -->
+  <input formControlName="password" type="password" name="password"
+   class="form-control mb-4" placeholder="Password" required/>
+  <div class="d-flex justify-content-around">
+  </div>
+  <!-- Sign in button -->
+  <button [disabled]="!loginForm.valid" class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+  <!-- Register -->
+  <p>Not a member?
+      <a >Register</a>
+  </p>
+</form>

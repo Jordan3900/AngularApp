@@ -9,9 +9,8 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
 import { AuthService } from './modules/auth/services/auth.service';
 import { HomeComponent } from './modules/home/components/home.component';
-import { NavigationBarComponent } from './modules/layout/components/navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './modules/layout/container/navigation-bar/navigation-bar.component';
 import { AuthGuardService } from './modules/auth/services/auth-guard.service';
-import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,7 @@ import { HttpService } from './services/http.service';
     FormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthGuardService, HttpService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

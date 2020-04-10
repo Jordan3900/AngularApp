@@ -11,10 +11,11 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UsersListComponent } from './containers/users-list/users-list.component';
 import { UsersService } from './services/users/users.service';
 import { usersRoutes } from './users.routes';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserDetailsComponent } from './containers/user-details/user-details.component';
+import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
     imports: [
@@ -28,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatButtonModule,
         MatInputModule,
         MatSnackBarModule,
-
+        MatDialogModule
     ],
     declarations: [
         UsersListComponent,
