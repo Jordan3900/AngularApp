@@ -4,7 +4,7 @@
 <mat-card *ngIf="!isLoading" class="example-card">
   <mat-card-header>
     <img mat-card-avatar [src]="user.avatar" alt="Photo of a Shiba Inu">
-    <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
     <mat-card-subtitle>Angular developer</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [src]="user.avatar" alt="Photo of a Shiba Inu">
@@ -15,8 +15,13 @@
       bred for hunting.
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openDialog()">Edit</button>
-    <button mat-button [routerLink]="['/users/list']" color="primary">Back</button>
+  <mat-card-actions class="d-flex justify-content-between">
+    <div>
+      <button mat-raised-button class="bg-danger" (click)="onDelete()">Delete</button>
+      <button mat-raised-button color="accent" (click)="openDialog()">Edit</button>
+    </div>
+    <div>
+      <button mat-button [routerLink]="['/users/list']" color="primary">Back</button>
+    </div>
   </mat-card-actions>
 </mat-card>

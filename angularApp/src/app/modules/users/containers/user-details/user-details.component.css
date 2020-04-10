@@ -12,3 +12,7 @@
     border-radius: 8% !important;
     padding: 50px !important;
 }
+
+.bg-danger {
+    color: white !important;
+}

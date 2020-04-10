@@ -32,8 +32,8 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     this.user = this.data;
     this.editForm.controls['email'].setValue(this.user.email);
-    this.editForm.controls['firstName'].setValue(this.user.first_name);
-    this.editForm.controls['lastName'].setValue(this.user.last_name);
+    this.editForm.controls['firstName'].setValue(this.user.firstName);
+    this.editForm.controls['lastName'].setValue(this.user.lastName);
   }
 
   onSave(formValues): void {

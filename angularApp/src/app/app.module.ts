@@ -17,7 +17,7 @@ import { AuthGuardService } from './modules/auth/services/auth-guard.service';
     AppComponent,
     HomeComponent,
     HomeComponent,
-    NavigationBarComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

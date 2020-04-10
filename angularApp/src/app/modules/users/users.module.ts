@@ -16,6 +16,8 @@ import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
 
 @NgModule({
     imports: [
@@ -29,13 +31,15 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatButtonModule,
         MatInputModule,
         MatSnackBarModule,
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule
     ],
     declarations: [
         UsersListComponent,
         UserCardComponent,
         UserDetailsComponent,
-        UserEditComponent
+        UserEditComponent,
+        UserFilterPipe
     ],
     providers: [
         UsersService

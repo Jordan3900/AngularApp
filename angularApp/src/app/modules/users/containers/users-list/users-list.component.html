@@ -13,8 +13,17 @@
         <mat-spinner></mat-spinner>
       </div>
       <div class="card-body ">
+        <div class="center-form" *ngIf="!isLoading">
+          <mat-form-field class="example-form-field">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" [(ngModel)]="searchInput">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
         <div class="row pt-3 pl-5">
-          <div *ngFor="let user of users | async">
+          <div *ngFor="let user of users | usersFilter : searchInput">
             <app-user-card [user]="user"></app-user-card>
           </div>
         </div>

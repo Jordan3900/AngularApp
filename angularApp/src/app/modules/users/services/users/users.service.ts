@@ -17,7 +17,19 @@ export class UsersService {
     getUsers(): Observable<User[]> {
         return this.http.get(this.usersURL).pipe(
             catchError(this.handleError<User[]>('getUsers', [])),
-            pluck('data')
+            pluck('data'),
+            map((users: any[]) => {
+                return users.map(user => {
+                    return {
+                        firstName: user.first_name,
+                        lastName: user.last_name,
+                        email: user.email,
+                        id: user.id,
+                        avatar: user.avatar,
+                        fullName: `${user.first_name} ${user.last_name}`
+                    } as User
+                })
+            })
         );
     }
 
@@ -25,12 +37,28 @@ export class UsersService {
         return this.http.get<User>(this.userURL + `${id}`).pipe(
             catchError(this.handleError<User>('getUser')),
             pluck('data'),
+            map((user: any) => {
+                return {
+                    firstName: user.first_name,
+                    lastName: user.last_name,
+                    email: user.email,
+                    id: user.id,
+                    avatar: user.avatar,
+                    fullName: `${user.first_name} ${user.last_name}`
+                } as User
+            })
         );
     }
 
     updateUser(id: number, body: any): Observable<User> {
         return this.http.put<User>(this.userURL + `${id}`, body).pipe(
             catchError(this.handleError<User>('updateUser'))
+        );
+    }
+
+    deleteUser(id: number): Observable<any> {
+        return this.http.delete<any>(this.userURL + `${id}`).pipe(
+            catchError(this.handleError('updateUser')),
         );
     }
 
