@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
@@ -12,10 +13,10 @@ import { HomeComponent } from './modules/home/components/home.component';
 import { NavigationBarComponent } from './modules/layout/container/navigation-bar/navigation-bar.component';
 import { AuthGuardService } from './modules/auth/services/auth-guard.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HomeComponent,
     NavigationBarComponent
   ],
@@ -26,6 +27,7 @@ import { AuthGuardService } from './modules/auth/services/auth-guard.service';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

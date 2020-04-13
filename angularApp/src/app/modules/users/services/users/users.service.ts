@@ -27,8 +27,8 @@ export class UsersService {
                         id: user.id,
                         avatar: user.avatar,
                         fullName: `${user.first_name} ${user.last_name}`
-                    } as User
-                })
+                    } as User;
+                });
             })
         );
     }
@@ -45,7 +45,7 @@ export class UsersService {
                     id: user.id,
                     avatar: user.avatar,
                     fullName: `${user.first_name} ${user.last_name}`
-                } as User
+                } as User;
             })
         );
     }
@@ -53,6 +53,12 @@ export class UsersService {
     updateUser(id: number, body: any): Observable<User> {
         return this.http.put<User>(this.userURL + `${id}`, body).pipe(
             catchError(this.handleError<User>('updateUser'))
+        );
+    }
+
+    addUser(body: any): Observable<User> {
+        return this.http.post<User>(this.userURL, body).pipe(
+            catchError(this.handleError<User>('addUser'))
         );
     }
 

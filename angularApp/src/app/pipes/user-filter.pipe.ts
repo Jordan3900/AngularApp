@@ -16,10 +16,10 @@ export class UserFilterPipe implements PipeTransform {
     }
     console.log(users);
     searchInput = searchInput.toLowerCase();
-    var us = users.filter(u => {
+    const us = users.filter(u => {
       return u.fullName.toLowerCase().includes(searchInput);
     });
-    debugger;
+
     return us;
   }
 }

@@ -14,10 +14,10 @@ import { usersRoutes } from './users.routes';
 import { UserDetailsComponent } from './containers/user-details/user-details.component';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
+import { UserAddComponent } from './containers/user-add/user-add.component';
 
 @NgModule({
     imports: [
@@ -30,7 +30,6 @@ import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
         MatCardModule,
         MatButtonModule,
         MatInputModule,
-        MatSnackBarModule,
         MatDialogModule,
         MatIconModule
     ],
@@ -39,7 +38,8 @@ import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
         UserCardComponent,
         UserDetailsComponent,
         UserEditComponent,
-        UserFilterPipe
+        UserFilterPipe,
+        UserAddComponent
     ],
     providers: [
         UsersService

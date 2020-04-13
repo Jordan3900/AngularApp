@@ -5,7 +5,7 @@ import { UserFilterPipe } from './user-filter.pipe';
 
 describe('Pipe: UserFiltere', () => {
   it('create an instance', () => {
-    let pipe = new UserFilterPipe();
+    const pipe = new UserFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

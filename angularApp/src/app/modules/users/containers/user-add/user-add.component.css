@@ -1,0 +1,40 @@
+.add-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+td {
+    padding-right: 8px;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    text-align: center;
+}
+
+hr {
+    background-color: white;
+    border-width: 1px;
+}
+
+.edit-form-wrapper {
+    background-color: blanchedalmond;
+    border-radius: 8%;
+    padding: 3em;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.something {
+    border-radius: 8% !important;
+    padding: 0px !important;
+}

@@ -23,7 +23,6 @@ export class UsersListComponent implements OnInit {
     this.isLoading = true;
     this.usersService.getUsers().subscribe(data => {
       this.length = data.length;
-      console.log(data)
       this.users = data;
       this.isLoading = false;
     });

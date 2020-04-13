@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../services/users/users.service';
 import { Validators, FormBuilder } from '@angular/forms';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { User } from '../../../models/user.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -19,15 +19,10 @@ export class UserEditComponent implements OnInit {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required]
   });
-  private configClass: MatSnackBarConfig = {
-    duration: 5000,
-    panelClass: ['bg-success'],
-    verticalPosition: 'top',
-  };
 
   constructor(private router: ActivatedRoute, private usersService: UsersService,
-    private snackBar: MatSnackBar, public fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: User,
-    public dialogRef: MatDialogRef<UserEditComponent>) { }
+    private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: User,
+    public dialogRef: MatDialogRef<UserEditComponent>, private alertService: AlertService) { }
 
   ngOnInit() {
     this.user = this.data;
@@ -45,7 +40,7 @@ export class UserEditComponent implements OnInit {
 
     this.usersService.updateUser(this.user.id, body).subscribe(result => {
       if (result) {
-        this.snackBar.open('Saved succesfully', 'X', this.configClass);
+        this.alertService.success('Successfully edited!');
         this.dialogRef.close(result);
       }
     });

@@ -21,7 +21,6 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.usersService.getUser(this.id).subscribe(user => {
-      debugger;
       this.user = user;
       this.isLoading = false;
     });
@@ -29,7 +28,7 @@ export class UserDetailsComponent implements OnInit {
 
   onDelete(): void {
     this.usersService.deleteUser(this.id).subscribe(() => {
-      this.router.navigate(["users/list"]);
+      this.router.navigate(['users/list']);
     });
   }
 

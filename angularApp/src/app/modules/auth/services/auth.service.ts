@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AlertService } from 'src/app/services/alert.service';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,7 +14,7 @@ export class AuthService {
     private readonly logURL = 'https://reqres.in/api/login';
     private readonly regURL = 'https://reqres.in/api/register';
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
     }
 
     loginUser(email: string, password: string): void {
@@ -21,7 +23,9 @@ export class AuthService {
             'password': password
         };
 
-        this.http.post(this.logURL, body).subscribe(value => {
+        this.http.post(this.logURL, body).pipe(
+            catchError(this.handleError('loginUser'))
+        ).subscribe(value => {
             if (value) {
                 localStorage.setItem('token', value['token']);
                 this.isLoginSubject.next(true);
@@ -57,5 +61,13 @@ export class AuthService {
 
     private hasToken(): boolean {
         return !!localStorage.getItem('token');
+    }
+
+    private handleError<T>(operation = 'operation', results?: T) {
+        return (error: any): Observable<T> => {
+            console.error(error, operation);
+            this.alertService.error('Invalid Credentials!');
+            return of(results as T);
+        };
     }
 }
