@@ -9,10 +9,9 @@ import { Observable } from 'rxjs';
 })
 
 export class NavigationBarComponent {
-  public isLoggedIn: Observable<boolean>;
+  public isLoggedIn = this.authService.isLoggedInSubject.asObservable();
 
   constructor(private authService: AuthService) {
-    this.isLoggedIn = authService.isLoggedIn();
   }
 
   logout(): void {

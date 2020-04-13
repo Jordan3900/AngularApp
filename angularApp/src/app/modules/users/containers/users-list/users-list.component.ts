@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { User } from '../../../models/user.model';
-import { UsersService } from '../../services/users/users.service';
+import { User } from '../../models/user.model';
+import { UsersService } from '../../services/users.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 

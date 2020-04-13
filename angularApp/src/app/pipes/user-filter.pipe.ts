@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from '../modules/models/user.model';
+import { User } from '../modules/users/models/user.model';
 
 @Pipe({
   name: 'usersFilter'
@@ -14,12 +14,12 @@ export class UserFilterPipe implements PipeTransform {
     if (!searchInput) {
       return users;
     }
-    console.log(users);
+
     searchInput = searchInput.toLowerCase();
-    const us = users.filter(u => {
-      return u.fullName.toLowerCase().includes(searchInput);
+    const filtredUsers = users.filter(u => {
+      return u.fullName.toLowerCase().includes(searchInput) || u.email.toLowerCase().includes(searchInput);
     });
 
-    return us;
+    return filtredUsers;
   }
 }

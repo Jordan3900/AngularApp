@@ -15,7 +15,7 @@ export class LoginComponent  {
   constructor(private authService: AuthService, private fb: FormBuilder) {
   }
 
-  login(formValues: any) {
+  login(formValues: any): void {
     this.authService.loginUser(formValues.email, formValues.password);
   }
 }

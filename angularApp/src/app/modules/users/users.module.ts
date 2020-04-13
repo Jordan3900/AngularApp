@@ -9,7 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UsersListComponent } from './containers/users-list/users-list.component';
-import { UsersService } from './services/users/users.service';
 import { usersRoutes } from './users.routes';
 import { UserDetailsComponent } from './containers/user-details/user-details.component';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
@@ -42,7 +41,6 @@ import { UserAddComponent } from './containers/user-add/user-add.component';
         UserAddComponent
     ],
     providers: [
-        UsersService
     ]
 })
 

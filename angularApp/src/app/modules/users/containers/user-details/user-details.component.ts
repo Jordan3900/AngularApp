@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../models/user.model';
-import { UsersService } from '../../services/users/users.service';
+import { User } from '../../models/user.model';
+import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserEditComponent } from '../user-edit/user-edit.component';
 import { MatDialog } from '@angular/material/dialog';

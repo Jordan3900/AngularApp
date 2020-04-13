@@ -5,19 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
-import { AuthService } from './modules/auth/services/auth.service';
-import { HomeComponent } from './modules/home/components/home.component';
-import { NavigationBarComponent } from './modules/layout/container/navigation-bar/navigation-bar.component';
-import { AuthGuardService } from './modules/auth/services/auth-guard.service';
-
+import { NavigationBarComponent } from './modules/core/containers/navigation-bar/navigation-bar.component';
+import {AuthInterceptor} from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavigationBarComponent
   ],
   imports: [
@@ -29,7 +26,11 @@ import { AuthGuardService } from './modules/auth/services/auth-guard.service';
     BrowserAnimationsModule,
     MatSnackBarModule,
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

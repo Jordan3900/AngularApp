@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { AlertService } from 'src/app/services/alert.service';
+import { AlertService } from 'src/app/modules/core/services/alert.service';
 import { catchError } from 'rxjs/operators';
 
 
@@ -10,9 +10,10 @@ import { catchError } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class AuthService {
-    public isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
+    public isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
     private readonly logURL = 'https://reqres.in/api/login';
     private readonly regURL = 'https://reqres.in/api/register';
+    public isLoggedIn = this.hasToken();
 
     constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
     }
@@ -28,7 +29,8 @@ export class AuthService {
         ).subscribe(value => {
             if (value) {
                 localStorage.setItem('token', value['token']);
-                this.isLoginSubject.next(true);
+                this.isLoggedInSubject.next(true);
+                this.isLoggedIn = true;
                 this.router.navigate(['home']);
             }
         });
@@ -52,18 +54,19 @@ export class AuthService {
     logout(): void {
         localStorage.removeItem('token');
         this.router.navigate(['auth/login']);
-        this.isLoginSubject.next(false);
-    }
-
-    isLoggedIn(): Observable<boolean> {
-        return this.isLoginSubject.asObservable();
+        this.isLoggedInSubject.next(false);
+        this.isLoggedIn = false;
     }
 
     private hasToken(): boolean {
         return !!localStorage.getItem('token');
     }
 
-    private handleError<T>(operation = 'operation', results?: T) {
+    public getToken(): string {
+        return localStorage.getItem('token');
+    }
+
+    private handleError<T>(operation = 'operation', results?: T): any {
         return (error: any): Observable<T> => {
             console.error(error, operation);
             this.alertService.error('Invalid Credentials!');

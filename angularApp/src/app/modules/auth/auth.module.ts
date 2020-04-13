@@ -6,7 +6,6 @@ import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { authRoutes } from './auth.routes';
 
-// This is already in the auth folder, I think it must be renamed to AuthModule
 @NgModule({
     imports: [
         CommonModule,

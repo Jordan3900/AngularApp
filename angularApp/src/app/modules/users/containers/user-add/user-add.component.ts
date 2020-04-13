@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { User } from 'src/app/modules/models/user.model';
-import { UsersService } from '../../services/users/users.service';
-import { AlertService } from 'src/app/services/alert.service';
+import { User } from 'src/app/modules/users/models/user.model';
+import { UsersService } from '../../services/users.service';
+import { AlertService } from 'src/app/modules/core/services/alert.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +24,7 @@ export class UserAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAdd(formValues) {
+  onAdd(formValues): void {
     const body = {
       'firstName': formValues.firstName,
       'lastName': formValues.lastName,

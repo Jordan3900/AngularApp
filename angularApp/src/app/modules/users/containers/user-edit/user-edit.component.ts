@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UsersService } from '../../services/users/users.service';
+import { UsersService } from '../../services/users.service';
 import { Validators, FormBuilder } from '@angular/forms';
-import { User } from '../../../models/user.model';
+import { User } from '../../models/user.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AlertService } from 'src/app/services/alert.service';
+import { AlertService } from 'src/app/modules/core/services/alert.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -13,7 +13,6 @@ import { AlertService } from 'src/app/services/alert.service';
 })
 
 export class UserEditComponent implements OnInit {
-  public user: User;
   public editForm = this.fb.group({
     email: ['', [Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.required]],
     firstName: ['', Validators.required],
@@ -21,11 +20,10 @@ export class UserEditComponent implements OnInit {
   });
 
   constructor(private router: ActivatedRoute, private usersService: UsersService,
-    private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: User,
+    private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public user: User,
     public dialogRef: MatDialogRef<UserEditComponent>, private alertService: AlertService) { }
 
   ngOnInit() {
-    this.user = this.data;
     this.editForm.controls['email'].setValue(this.user.email);
     this.editForm.controls['firstName'].setValue(this.user.firstName);
     this.editForm.controls['lastName'].setValue(this.user.lastName);

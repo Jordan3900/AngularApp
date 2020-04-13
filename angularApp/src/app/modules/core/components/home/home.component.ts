@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../auth/services/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../../auth/services/auth.service';
 })
 
 export class HomeComponent {
-  public isLoggedIn = this.authService.isLoggedIn();
+  public isLoggedIn = this.authService.isLoggedInSubject.asObservable();
 
   constructor(private authService: AuthService) { }
 }

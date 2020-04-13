@@ -7,14 +7,13 @@
   <input formControlName="email" type="email" name="email" class="form-control mb-4" placeholder="E-mail" required />
   <!-- Password -->
   <label>Password</label>
-  <em *ngIf="!isPassMatch(registerForm.value)">Password does not match!</em>
   <input formControlName="password" type="password" name="password" class="form-control mb-4" placeholder="Password"
     required />
   <!-- Confirm Password -->
   <label>Confirm Password</label>
-  <em *ngIf="!isPassMatch(registerForm.value)">Password does not match!</em>
+  <em *ngIf="registerForm.hasError('notMatch')">Password does not match!</em>
   <input formControlName="confirmPassword" type="password" name="confirmPassword" class="form-control mb-4" placeholder="Confirm Password"
-    required />
+    required [errorStateMatcher]="matcher"/>
   <!-- First Name -->
   <label>First Name</label>
   <input formControlName="firstName" type="text" name="firstName" class="form-control mb-4" placeholder="First Name" required />
@@ -22,5 +21,5 @@
   <label>Last Name</label>
   <input formControlName="lastName" type="text" name="lastName" class="form-control mb-4" placeholder="Last Name" required />
   <!-- Sign in button -->
-  <button [disabled]="!registerForm.valid || !isPassMatch(registerForm.value)" class="btn btn-info btn-block my-4" type="submit">Sign up</button>
+  <button [disabled]="!registerForm.valid" class="btn btn-info btn-block my-4" type="submit">Sign up</button>
 </form>
