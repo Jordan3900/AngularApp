@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { UsersService } from '../../../core/services/users.service';
-import { LoaderService } from 'src/app/services/loader.service';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-users-list',
@@ -14,7 +13,19 @@ export class UsersListComponent implements OnInit {
   public users: User[];
   public length: number;
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) {
+  constructor( private usersService: UsersService) {
+  }
+
+  sortData(sort: Sort): void {
+    if (!sort.active || sort.direction === '') {
+      return;
+    }
+
+    this.users = this.users.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+
+      return (a.firstName < b.firstName ? -1 : 1) * (isAsc ? 1 : -1);
+    });
   }
 
   ngOnInit() {

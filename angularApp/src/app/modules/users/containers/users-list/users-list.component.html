@@ -1,8 +1,9 @@
 <div class="container my-5">
   <section class="team-section">
-    <div class="card">
+    <div matSort (matSortChange)="sortData($event)" class="card">
       <div class="card-header white d-flex justify-content-between">
         <p class="h5-responsive font-weight-bold mb-0">Latest Members</p>
+        <p mat-sort-header="name" class="h5-responsive font-weight-bold mb-0">Sort by name</p>
         <ul class="list-unstyled d-flex align-items-center mb-0">
           <li><span class="badge badge-danger">{{length}} Members</span></li>
           <li><i class="far fa-window-minimize fa-sm pl-3"></i></li>
