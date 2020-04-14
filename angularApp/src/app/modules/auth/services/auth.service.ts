@@ -28,7 +28,7 @@ export class AuthService {
             catchError(this.handleError('loginUser'))
         ).subscribe(value => {
             if (value) {
-                localStorage.setItem('token', value['token']);
+                localStorage.setItem('token', value.token);
                 this.isLoggedInSubject.next(true);
                 this.isLoggedIn = true;
                 this.router.navigate(['home']);

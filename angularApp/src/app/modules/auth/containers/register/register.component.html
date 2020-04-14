@@ -7,13 +7,13 @@
   <input formControlName="email" type="email" name="email" class="form-control mb-4" placeholder="E-mail" required />
   <!-- Password -->
   <label>Password</label>
-  <input formControlName="password" type="password" name="password" class="form-control mb-4" placeholder="Password"
+  <input formControlName="password" (keyup)="checkPasswords(registerForm.value)" type="password" name="password" class="form-control mb-4" placeholder="Password"
     required />
   <!-- Confirm Password -->
   <label>Confirm Password</label>
   <em *ngIf="registerForm.hasError('notMatch')">Password does not match!</em>
-  <input formControlName="confirmPassword" type="password" name="confirmPassword" class="form-control mb-4" placeholder="Confirm Password"
-    required [errorStateMatcher]="matcher"/>
+  <input formControlName="confirmPassword" (keyup)="checkPasswords(registerForm.value)" type="password" name="confirmPassword" class="form-control mb-4" placeholder="Confirm Password"
+    required/>
   <!-- First Name -->
   <label>First Name</label>
   <input formControlName="firstName" type="text" name="firstName" class="form-control mb-4" placeholder="First Name" required />
