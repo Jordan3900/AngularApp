@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
 import { UserAddComponent } from './containers/user-add/user-add.component';
+import { AvatarDirective } from 'src/app/directives/avatar.directive';
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import { UserAddComponent } from './containers/user-add/user-add.component';
         UserDetailsComponent,
         UserEditComponent,
         UserFilterPipe,
-        UserAddComponent
+        UserAddComponent,
+        AvatarDirective
     ],
     providers: [
     ]

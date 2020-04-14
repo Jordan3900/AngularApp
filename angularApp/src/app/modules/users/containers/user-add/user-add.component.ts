@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/modules/users/models/user.model';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../core/services/users.service';
 import { AlertService } from 'src/app/modules/core/services/alert.service';
 import { Router } from '@angular/router';
 

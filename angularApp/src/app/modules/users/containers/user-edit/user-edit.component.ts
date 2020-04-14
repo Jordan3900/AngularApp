@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../core/services/users.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';

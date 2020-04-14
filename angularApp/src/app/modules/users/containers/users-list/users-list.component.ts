@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../models/user.model';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../core/services/users.service';
 import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
