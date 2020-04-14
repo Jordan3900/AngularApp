@@ -9,11 +9,8 @@
           <li><i class="fas fa-times fa-sm pl-3"></i></li>
         </ul>
       </div>
-      <div *ngIf="isLoading" class="m-auto p-5">
-        <mat-spinner></mat-spinner>
-      </div>
       <div class="card-body ">
-        <div class="center-form" *ngIf="!isLoading">
+        <div class="center-form">
           <mat-form-field class="example-form-field">
             <mat-label>Search</mat-label>
             <input matInput type="text" [(ngModel)]="searchInput">

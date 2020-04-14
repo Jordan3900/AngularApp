@@ -28,7 +28,9 @@ export class RegisterComponent implements OnInit {
     let password = formValue.password;
     let confirmPass = formValue.confirmPassword;
     const passwordMatch = password === confirmPass;
+    
     this.registerForm.setErrors({'notMatch': !passwordMatch});
+
     return passwordMatch;
   }
 

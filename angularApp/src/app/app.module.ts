@@ -6,16 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
 import { NavigationBarComponent } from './modules/core/containers/navigation-bar/navigation-bar.component';
-import {AuthInterceptor} from './interceptors/auth.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { LoaderComponent } from './modules/core/components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,12 +29,13 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
     FormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatProgressSpinnerModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

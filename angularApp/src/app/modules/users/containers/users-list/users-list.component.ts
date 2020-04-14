@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { UsersService } from '../../services/users.service';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-users-list',
@@ -14,17 +13,14 @@ import { tap } from 'rxjs/operators';
 export class UsersListComponent implements OnInit {
   public users: User[];
   public length: number;
-  public isLoading: boolean;
 
   constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
 
   ngOnInit() {
-    this.isLoading = true;
     this.usersService.getUsers().subscribe(data => {
       this.length = data.length;
       this.users = data;
-      this.isLoading = false;
     });
   }
 }

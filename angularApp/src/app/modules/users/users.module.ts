@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -25,7 +24,6 @@ import { UserAddComponent } from './containers/user-add/user-add.component';
         ReactiveFormsModule,
         RouterModule.forChild(usersRoutes),
         MatSliderModule,
-        MatProgressSpinnerModule,
         MatCardModule,
         MatButtonModule,
         MatInputModule,
