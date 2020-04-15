@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class UsersService {
-    readonly usersURL = 'https://reqres.in/api/users?delay=3';
-    readonly userURL = 'https://reqres.in/api/users/';
+    private readonly usersURL = 'https://reqres.in/api/users?delay=3';
+    private readonly userURL = 'https://reqres.in/api/users/';
 
     constructor(private http: HttpClient) {
     }
