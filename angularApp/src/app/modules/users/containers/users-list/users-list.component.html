@@ -21,7 +21,7 @@
           </mat-form-field>
         </div>
         <div class="row pt-3 pl-5">
-          <div *ngFor="let user of users | usersFilter : searchInput">
+          <div *ngFor="let user of users$ | async | usersFilter : searchInput">
             <app-user-card [user]="user"></app-user-card>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { UsersService } from '../../../core/services/users.service';
+import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserEditComponent } from '../user-edit/user-edit.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,7 +18,7 @@ export class UserDetailsComponent implements OnInit {
   constructor(public usersService: UsersService, private activatedRoute: ActivatedRoute,
     public dialog: MatDialog, private router: Router) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.usersService.getUser(this.id).subscribe(user => {
       this.user = user;

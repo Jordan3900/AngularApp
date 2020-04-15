@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { UsersService } from '../../../core/services/users.service';
+import { UsersService } from '../../services/users.service';
 import { Sort } from '@angular/material/sort';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -9,10 +10,20 @@ import { Sort } from '@angular/material/sort';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  public users: User[];
+  public users$: Observable<User[]> = this.usersService.users$;
   public length: number;
 
   constructor(private usersService: UsersService) {
+  }
+
+  public ngOnInit(): void {
+    this.usersService.getUsers();
+    this.users$.subscribe(users => {
+      if (users) {
+        this.length = users.length;
+      }
+    });
+
   }
 
   public sortData(sort: Sort): void {
@@ -20,17 +31,6 @@ export class UsersListComponent implements OnInit {
       return;
     }
 
-    this.users = this.users.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-
-      return (a.firstName < b.firstName ? -1 : 1) * (isAsc ? 1 : -1);
-    });
-  }
-
-  ngOnInit() {
-    this.usersService.getUsers().subscribe(data => {
-      this.length = data.length;
-      this.users = data;
-    });
+    this.usersService.sortData(sort);
   }
 }

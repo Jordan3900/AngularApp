@@ -11,8 +11,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
 import { NavigationBarComponent } from './modules/core/containers/navigation-bar/navigation-bar.component';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { AuthInterceptor } from './modules/core/interceptors/auth.interceptor';
+import { LoaderInterceptor } from './modules/core/interceptors/loader.interceptor';
 import { LoaderComponent } from './modules/core/components/loader/loader.component';
 
 @NgModule({
