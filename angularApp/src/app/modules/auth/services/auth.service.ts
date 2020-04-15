@@ -18,7 +18,7 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
     }
 
-    loginUser(email: string, password: string): void {
+    public loginUser(email: string, password: string): void {
         const body = {
             'email': email,
             'password': password
@@ -36,7 +36,7 @@ export class AuthService {
         });
     }
 
-    registerUser(email: string, password: string, firstName: string, lastName: string): void {
+    public registerUser(email: string, password: string, firstName: string, lastName: string): void {
         const body = {
             'email': email,
             'password': password,
@@ -51,7 +51,7 @@ export class AuthService {
         });
     }
 
-    logout(): void {
+    public logout(): void {
         localStorage.removeItem('token');
         this.router.navigate(['auth/login']);
         this.isLoggedInSubject.next(false);

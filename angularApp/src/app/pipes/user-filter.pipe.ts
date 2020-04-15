@@ -6,7 +6,7 @@ import { User } from '../modules/users/models/user.model';
 })
 export class UserFilterPipe implements PipeTransform {
 
-  transform(users: User[], searchInput: string): User[] {
+  public transform(users: User[], searchInput: string): User[] {
 
     if (!users) {
       return [];

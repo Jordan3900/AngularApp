@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from '../../users/models/user.model';
-import { catchError, pluck, map, tap } from 'rxjs/operators';
+import { catchError, pluck, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UsersService {
     constructor(private http: HttpClient) {
     }
 
-    getUsers(): Observable<User[]> {
+    public getUsers(): Observable<User[]> {
         return this.http.get(this.usersURL).pipe(
             catchError(this.handleError<User[]>('getUsers', [])),
             pluck('data'),
@@ -33,7 +33,7 @@ export class UsersService {
         );
     }
 
-    getUser(id: number): Observable<User> {
+    public getUser(id: number): Observable<User> {
         return this.http.get<User>(this.userURL + `${id}`).pipe(
             catchError(this.handleError<User>('getUser')),
             pluck('data'),
@@ -50,19 +50,19 @@ export class UsersService {
         );
     }
 
-    updateUser(id: number, body: any): Observable<User> {
+    public updateUser(id: number, body: any): Observable<User> {
         return this.http.put<User>(this.userURL + `${id}`, body).pipe(
             catchError(this.handleError<User>('updateUser'))
         );
     }
 
-    addUser(body: any): Observable<User> {
+    public addUser(body: any): Observable<User> {
         return this.http.post<User>(this.userURL, body).pipe(
             catchError(this.handleError<User>('addUser'))
         );
     }
 
-    deleteUser(id: number): Observable<any> {
+    public deleteUser(id: number): Observable<any> {
         return this.http.delete<any>(this.userURL + `${id}`).pipe(
             catchError(this.handleError('updateUser')),
         );

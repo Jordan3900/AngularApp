@@ -19,11 +19,11 @@ export class AlertService {
 
   constructor(private snackBar: MatSnackBar) { }
 
-  success(message: string): void {
+  public success(message: string): void {
     this.snackBar.open(message, 'X', this.configSuccess);
   }
 
-  error(message: string): void {
+  public error(message: string): void {
     this.snackBar.open(message, 'X', this.configError);
   }
 }

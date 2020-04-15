@@ -17,8 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserFilterPipe } from 'src/app/pipes/user-filter.pipe';
 import { UserAddComponent } from './containers/user-add/user-add.component';
 import { AvatarDirective } from 'src/app/directives/avatar.directive';
-import {MatSelectModule} from '@angular/material/select';
-import {MatSortModule} from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
     imports: [

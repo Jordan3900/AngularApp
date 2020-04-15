@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UsersService } from '../../../core/services/users.service';
 import { Sort } from '@angular/material/sort';
@@ -13,10 +12,10 @@ export class UsersListComponent implements OnInit {
   public users: User[];
   public length: number;
 
-  constructor( private usersService: UsersService) {
+  constructor(private usersService: UsersService) {
   }
 
-  sortData(sort: Sort): void {
+  public sortData(sort: Sort): void {
     if (!sort.active || sort.direction === '') {
       return;
     }

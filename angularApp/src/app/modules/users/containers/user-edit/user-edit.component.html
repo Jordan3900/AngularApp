@@ -25,9 +25,10 @@
             </mat-form-field>
         </p>
         <div>
-            <button class="mr-2" [disabled]="!editForm.valid || editForm.pristine" type="submit" mat-raised-button color="accent">Save</button>
+            <button class="mr-2" [disabled]="!editForm.valid || editForm.pristine" type="submit" mat-raised-button
+                color="accent">Save</button>
             <button (click)="onCancel()" mat-raised-button color="primary" type="button">Cancel</button>
         </div>
-        
+
     </form>
 </div>

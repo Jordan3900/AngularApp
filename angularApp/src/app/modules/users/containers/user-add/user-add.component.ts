@@ -18,13 +18,14 @@ export class UserAddComponent implements OnInit {
     lastName: ['', Validators.required],
     picture: ['', Validators.required]
   });
+
   constructor(private fb: FormBuilder, private usersService: UsersService, private alertService: AlertService,
     private router: Router) { }
 
   ngOnInit() {
   }
 
-  onAdd(formValues): void {
+  public onAdd(formValues): void {
     const body = {
       'firstName': formValues.firstName,
       'lastName': formValues.lastName,

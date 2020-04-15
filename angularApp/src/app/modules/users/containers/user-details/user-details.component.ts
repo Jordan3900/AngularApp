@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UsersService } from '../../../core/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class UserDetailsComponent implements OnInit {
   public isLoading = true;
 
   constructor(public usersService: UsersService, private activatedRoute: ActivatedRoute,
-     public dialog: MatDialog, private router: Router) { }
+    public dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -26,13 +26,13 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-  onDelete(): void {
+  public onDelete(): void {
     this.usersService.deleteUser(this.id).subscribe(() => {
       this.router.navigate(['users/list']);
     });
   }
 
-  openDialog(): void {
+  public openDialog(): void {
     const dialogRef = this.dialog.open(UserEditComponent, {
       data: this.user,
       panelClass: 'custom-dialog-container'

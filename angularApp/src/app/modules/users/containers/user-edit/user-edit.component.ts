@@ -29,7 +29,7 @@ export class UserEditComponent implements OnInit {
     this.editForm.controls['lastName'].setValue(this.user.lastName);
   }
 
-  onSave(formValues): void {
+  public onSave(formValues): void {
     const body = {
       'firstName': formValues.firstName,
       'lastName': formValues.lastName,
@@ -44,7 +44,7 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  onCancel(): void {
+  public onCancel(): void {
     this.dialogRef.close();
   }
 }

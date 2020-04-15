@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from '../../models/user.model';
-
 
 @Component({
   selector: 'app-user-card',
@@ -11,9 +10,10 @@ export class UserCardComponent {
   @Input() public user: User;
   public showText = false;
   public text = 'Show more';
+
   constructor() { }
 
-  toggle(): boolean {
+  public toggle(): boolean {
     this.text = this.showText ? 'Show more' : 'Hide';
     this.showText = !this.showText;
     return this.showText;

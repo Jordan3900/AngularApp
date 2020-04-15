@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,16 +23,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  checkPasswords(formValue: any): boolean {
+  public checkPasswords(formValue: any): boolean {
     const password = formValue.password;
     const confirmPass = formValue.confirmPassword;
     const passwordMatch = password === confirmPass;
-    this.registerForm.setErrors({'notMatch': !passwordMatch});
+    this.registerForm.setErrors({ 'notMatch': !passwordMatch });
 
     return passwordMatch;
   }
 
-  register(formValues: any): void {
+  public register(formValues: any): void {
     this.authService.registerUser(formValues.email, formValues.password, formValues.firstName, formValues.lastName);
   }
 }

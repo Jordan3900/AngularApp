@@ -9,10 +9,10 @@ export class LoaderService {
 
   constructor() { }
 
-  show(): void {
+  public show(): void {
     this.isLoading.next(true);
   }
-  hide(): void {
+  public hide(): void {
     this.isLoading.next(false);
   }
 }
